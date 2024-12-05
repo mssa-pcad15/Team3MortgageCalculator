@@ -30,7 +30,9 @@ namespace MortgageCalculatorTest
             decimal i = 6.734m;//interest rate
             int n = 30;//loan length in years
 
-            decimal testValue = Program.CalculateMonthlyPayment( P, i, n);
+            Program.Mortgage mortgage = new Program.Mortgage(P, i, n);
+
+            decimal testValue = Program.MortgageCalculator.CalculateMonthlyPayment(mortgage);
             Assert.AreEqual(M, testValue);
             
         }
