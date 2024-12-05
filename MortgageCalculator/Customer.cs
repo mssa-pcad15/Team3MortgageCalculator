@@ -12,11 +12,6 @@ namespace MortgageCalculator {
 
 
 
-
-
-
-
-
     public class Customer
     {
         public string Name { get; set; }
