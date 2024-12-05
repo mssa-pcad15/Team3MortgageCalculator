@@ -1,3 +1,11 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using MortgageCalculator;
+
+
 namespace MortgageCalculatorTest
 {
     [TestClass]
@@ -19,12 +27,17 @@ namespace MortgageCalculatorTest
         {
             decimal M = 2339.45m;//monthly mortgage
             decimal P =400000-8000 ;//principal amount
-            decimal i = 0.0598m;//interest rate
+            decimal i = 05.98m;//interest rate
             int n = 30;//loan length in years
 
-            decimal testValue =CalculateMonthlyPayment();
+            decimal testValue = Program.CalculateMonthlyPayment( P, i, n);
             Assert.AreEqual(M, testValue);
             
-            }
+        }
+
+
+
+
+
     }
 }
