@@ -25,9 +25,9 @@ namespace MortgageCalculatorTest
         [TestMethod]
         public void TestMonthlyMortgagePayment()
         {
-            decimal M = 2339.45m;//monthly mortgage
-            decimal P =400000-8000 ;//principal amount
-            decimal i = 05.98m;//interest rate
+            decimal M = 1295.07m;//monthly mortgage
+            decimal P =200000 ;//principal amount
+            decimal i = 6.734m;//interest rate
             int n = 30;//loan length in years
 
             decimal testValue = Program.CalculateMonthlyPayment( P, i, n);
