@@ -9,6 +9,7 @@ namespace MortgageCalculator
             decimal monthlyPayment = MortgageCalculator.CalculateMonthlyPayment(mortgage);
             Console.WriteLine($"monthly payment: {monthlyPayment}");
         }
+
         
         /*
         M = P [ i (1 + i)^n ] / [ (1 + i)^n – 1]
@@ -26,18 +27,19 @@ namespace MortgageCalculator
         }
 
         */
+
         public class Customer
         {
             public string Name { get; set; }
-            public decimal HomePrice { get; set; }
-            public decimal DownPayment { get; set; }
-            public decimal LoanAmount => HomePrice - DownPayment;
-
-            public Customer(string name, decimal homePrice, decimal downPayment) // constructor
+            //public decimal HomePrice { get; set; }
+            //public decimal DownPayment { get; set; }
+            //public decimal LoanAmount => HomePrice - DownPayment;
+            public List<Mortgage> houses = new List<Mortgage>();
+            public Customer(string name/*, decimal homePrice, decimal downPayment*/) // constructor
             {
                 Name = name;
-                HomePrice = homePrice;
-                DownPayment = downPayment;
+                //    HomePrice = homePrice;
+                //    DownPayment = downPayment;
             }
         }
 
