@@ -33,8 +33,12 @@ namespace MortgageCalculatorTest
             Program.Mortgage mortgage = new Program.Mortgage(P, i, n);
 
             decimal testValue = Program.MortgageCalculator.CalculateMonthlyPayment(mortgage);
+            Program.Mortgage mortgage = new Program.Mortgage(P, i, n);
+
+            decimal testValue = Program.MortgageCalculator.CalculateMonthlyPayment(mortgage);
+
             Assert.AreEqual(M, testValue);
-            
+    
         }
 
 
