@@ -8,6 +8,7 @@ namespace MortgageCalculator
             Mortgage mortgage = new Mortgage(650000 - 50000, 8.88m, 30);
             decimal monthlyPayment = MortgageCalculator.CalculateMonthlyPayment(mortgage);
             Console.WriteLine($"monthly payment: {monthlyPayment}");
+
         }
 
 
@@ -38,9 +39,6 @@ namespace MortgageCalculator
             public class Customer
         {
             public string Name { get; set; }
-            //public decimal HomePrice { get; set; }
-            //public decimal DownPayment { get; set; }
-            //public decimal LoanAmount => HomePrice - DownPayment;
             public List<Mortgage> houses = new List<Mortgage>();
             public Customer(string name/*, decimal homePrice, decimal downPayment*/) // constructor
             {
@@ -55,15 +53,18 @@ namespace MortgageCalculator
 
         public class Mortgage
         {
+            public string AccountNumber { get; set; }
             public decimal LoanAmount { get; set; }
             public decimal AnnualInterestRate { get; set; }
             public int LoanTimeInYears { get; set; }
-
+            public decimal monthlyPayment { get; private set; }
+            
             public Mortgage(decimal loanAmount, decimal annualInterestRate, int loanTimeInYears) // mortgage constructor
             {
                 LoanAmount = loanAmount;
                 AnnualInterestRate = annualInterestRate;
                 LoanTimeInYears = loanTimeInYears;
+                monthlyPayment = MortgageCalculator.CalculateMonthlyPayment(this);
             }
         }
 
