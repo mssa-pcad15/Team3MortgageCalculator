@@ -30,6 +30,7 @@ namespace MortgageCalculator
         public class Bank
         {
             public List<Customer>Customers=new List<Customer>();
+            
 
         }
 
