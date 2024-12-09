@@ -45,7 +45,7 @@ namespace MortgageCalculatorTest
         [TestMethod]
         public void TestMortgageClass()
         {
-            decimal M = 1295.07m;//monthly mortgage
+            //decimal M = 1295.07m;//monthly mortgage
 
 
 
