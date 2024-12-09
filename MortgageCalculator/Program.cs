@@ -10,7 +10,7 @@ namespace MortgageCalculator
             Console.WriteLine($"monthly payment: {monthlyPayment}");
         }
 
-        
+
         /*
         M = P [ i (1 + i)^n ] / [ (1 + i)^n – 1]
         public static decimal CalculateMonthlyPayment(decimal loanAmount, decimal monthlyInterest, int LoanTimeInYears)
@@ -27,8 +27,15 @@ namespace MortgageCalculator
         }
 
         */
+        public class Bank
+        {
+            public List<Customer>Customers=new List<Customer>();
 
-        public class Customer
+        }
+
+
+
+            public class Customer
         {
             public string Name { get; set; }
             //public decimal HomePrice { get; set; }
