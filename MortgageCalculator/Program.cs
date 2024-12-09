@@ -46,17 +46,18 @@ namespace MortgageCalculator
 
         public class Mortgage
         {
+            public string AccountNumber { get; set; }
             public decimal LoanAmount { get; set; }
             public decimal AnnualInterestRate { get; set; }
             public int LoanTimeInYears { get; set; }
             public decimal monthlyPayment { get; private set; }
-
-            monthlyPayment = MortgageCalculator.CalculateMonthlyPayment(this);
+            
             public Mortgage(decimal loanAmount, decimal annualInterestRate, int loanTimeInYears) // mortgage constructor
             {
                 LoanAmount = loanAmount;
                 AnnualInterestRate = annualInterestRate;
                 LoanTimeInYears = loanTimeInYears;
+                monthlyPayment = MortgageCalculator.CalculateMonthlyPayment(this);
             }
         }
 
