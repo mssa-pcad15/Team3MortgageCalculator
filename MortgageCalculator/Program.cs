@@ -46,28 +46,24 @@ namespace MortgageCalculator
         {
             public string Name { get; set;}
             public List<Mortgage> houses = new List<Mortgage>();
-            public Customer(string name/*, decimal homePrice, decimal downPayment*/) // constructor
+            public Customer(string name) // constructor
             {
                 Name = name;                
+                //    HomePrice = homePrice;
+                //    DownPayment = downPayment;
+                //    HomePrice = homePrice;
+                //    DownPayment = downPayment;
+                //    HomePrice = homePrice;
+                //    DownPayment = downPayment;
+                //    HomePrice = homePrice;
+                //    DownPayment = downPayment;
+                //    HomePrice = homePrice;
+                //    DownPayment = downPayment;
             }
 
-            public void ShowMyMortgages()
+            public void RemoveMortgage(Mortgage mortgage)
             {
-                if (houses.Count == 0)
-                {
-                    Console.WriteLine("You have no mortgages");
-                }
-                else
-                {
-                    foreach (var house in houses)
-                    {
-                        Console.WriteLine($"Account Number: {house.AccountNumber}");
-                        Console.WriteLine($"Loan Amount: {house.LoanAmount}");
-                        Console.WriteLine($"Annual Interest Rate: {house.AnnualInterestRate}");
-                        Console.WriteLine($"Loan Time in Years: {house.LoanTimeInYears}");
-                        Console.WriteLine($"Monthly Payment: {house.monthlyPayment}");
-                    }
-                }
+                houses.Remove(mortgage);
             }
         }
 
