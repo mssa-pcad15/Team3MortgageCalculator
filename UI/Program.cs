@@ -65,7 +65,7 @@ new FigletText(newBank.BankName)
                 return;
         }
     }
-
+    //test
 
     static void MortgagesMenu(Customer customer)
     {
