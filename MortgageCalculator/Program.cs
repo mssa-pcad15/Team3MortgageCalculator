@@ -32,15 +32,17 @@ namespace MortgageCalculator
         */
         public class Bank
         {
-            string bankName { get; set;}
-            public List<Customer>Customers=new List<Customer>();
-
-
+            public string BankName { get; set;}
+           
+            public List<Customer>customers=new List<Customer>();
+           
+            public Bank(string name) 
+            { 
+            BankName=name;                        
+            }
         }
 
-
-
-            public class Customer
+        public class Customer
         {
             public string Name { get; set;}
             public List<Mortgage> houses = new List<Mortgage>();
