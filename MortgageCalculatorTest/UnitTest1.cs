@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -34,7 +35,7 @@ namespace MortgageCalculatorTest
             Program.Mortgage mortgage = new Program.Mortgage(P, i, n);
 
             decimal testValue = Program.MortgageCalculator.CalculateMonthlyPayment(mortgage);
-            
+
             //Program.Mortgage mortgage = new Program.Mortgage(P, i, n);
             //
             //decimal testValue = Program.MortgageCalculator.CalculateMonthlyPayment(mortgage);
@@ -112,7 +113,7 @@ namespace MortgageCalculatorTest
             Assert.AreEqual(n1, sally.houses[0].LoanTimeInYears);
             Assert.AreEqual(n2, sally.houses[1].LoanTimeInYears);
             Assert.AreEqual(n3, sally.houses[2].LoanTimeInYears);
-            Assert.AreEqual(n4, sally.houses[3].LoanTimeInYears);            
+            Assert.AreEqual(n4, sally.houses[3].LoanTimeInYears);
         }
 
         [TestMethod]
@@ -161,8 +162,8 @@ namespace MortgageCalculatorTest
 
         [TestMethod]
         public void TestBank()
-        {   
-            
+        {
+
 
 
             //HOUSE 1 250k
@@ -191,7 +192,7 @@ namespace MortgageCalculatorTest
 
 
 
-            Bank tdBank = new Bank();
+            Bank tdBank = new Bank("TD Bank");
 
 
             Customer sally = new Customer("Sally");
@@ -200,7 +201,7 @@ namespace MortgageCalculatorTest
             Customer ross = new Customer("Ross");
 
 
-            tdBank.Customers = new List<Customer>
+            tdBank.customers = new List<Customer>
             {
                sally, bobby, sammy, ross
             };
@@ -209,15 +210,20 @@ namespace MortgageCalculatorTest
             bobby.houses.Add(new Mortgage(P2, i2, n2));
             sammy.houses.Add(new Mortgage(P3, i3, n3));
             ross.houses.Add(new Mortgage(P4, i4, n4));
+       
+
+            Debug.WriteLine("Bank:\t" +tdBank.BankName);
+            Debug.WriteLine("Account Owner:\t" + sally.Name);
+            Debug.WriteLine("Account Number:\t"+sally.houses[0].AccountNumber);
+
             
-
-         
-
             Assert.AreEqual(M1, Program.MortgageCalculator.CalculateMonthlyPayment(sally.houses[0]));
             Assert.AreEqual(M2, Program.MortgageCalculator.CalculateMonthlyPayment(bobby.houses[0]));
             Assert.AreEqual(M3, Program.MortgageCalculator.CalculateMonthlyPayment(sammy.houses[0]));
             Assert.AreEqual(M4, Program.MortgageCalculator.CalculateMonthlyPayment(ross.houses[0]));
         }
+
+        
     }
 }
 

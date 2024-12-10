@@ -14,6 +14,11 @@
     <PackageTags>OOP;Calculator;Mortgage;</PackageTags>
     <PackAsTool>False</PackAsTool>
     <PackageId>PCAD15TEAM3MORTGAGECALCULATORv1.1</PackageId>
+    <Version>1.1.0</Version>
   </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.Runtime.Extensions" Version="4.3.1" />
+  </ItemGroup>
 
 </Project>

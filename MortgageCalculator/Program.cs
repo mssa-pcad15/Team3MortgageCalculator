@@ -1,4 +1,6 @@
 ﻿
+using System;
+using System.Linq;
 namespace MortgageCalculator
 {
     public class Program
@@ -30,23 +32,24 @@ namespace MortgageCalculator
         */
         public class Bank
         {
-            string bankName { get; set;}
-            public List<Customer>Customers=new List<Customer>();
-            
-
+            public string BankName { get; set;}
+           
+            public List<Customer>customers=new List<Customer>();
+           
+            public Bank(string name) 
+            { 
+            BankName=name;                        
+            }
         }
-
 
 
             public class Customer
         {
-            public string Name { get; set; }
+            public string Name { get; set;}
             public List<Mortgage> houses = new List<Mortgage>();
             public Customer(string name/*, decimal homePrice, decimal downPayment*/) // constructor
             {
-                Name = name;
-                //    HomePrice = homePrice;
-                //    DownPayment = downPayment;
+                Name = name;                
             }
         }
 
@@ -55,7 +58,7 @@ namespace MortgageCalculator
 
         public class Mortgage
         {
-            public string AccountNumber { get; set; }
+            public string AccountNumber { get;private set; }
             public decimal LoanAmount { get; set; }
             public decimal AnnualInterestRate { get; set; }
             public int LoanTimeInYears { get; set; }
@@ -67,7 +70,17 @@ namespace MortgageCalculator
                 AnnualInterestRate = annualInterestRate;
                 LoanTimeInYears = loanTimeInYears;
                 monthlyPayment = MortgageCalculator.CalculateMonthlyPayment(this);
+                AccountNumber = AccountNumberGenerator();
             }
+
+            private static string AccountNumberGenerator() 
+            { Random random= new Random();
+                int length = 5;
+                const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+               
+                return new string(Enumerable.Repeat(chars, length).Select(s => s[ (random.Next(s.Length)) ]).ToArray());
+
+            }                        
         }
 
         public class MortgageCalculator
@@ -75,6 +88,7 @@ namespace MortgageCalculator
             // M = P [ i (1 + i)^n ] / [ (1 + i)^n – 1]
             public static decimal CalculateMonthlyPayment(Mortgage mortgage)
             {
+
                 decimal monthlyRate = mortgage.AnnualInterestRate / 100 / 12;
                 int totalPayments = mortgage.LoanTimeInYears * 12;
 

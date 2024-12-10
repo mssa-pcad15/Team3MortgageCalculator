@@ -8,7 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="PCAD15TEAM3MORTGAGECALCULATORv1.1" Version="1.0.0" />
+    <PackageReference Include="PCAD15TEAM3MORTGAGECALCULATORv1.1" Version="1.1.0" />
     <PackageReference Include="Spectre.Console" Version="0.49.1" />
     <PackageReference Include="Spectre.Console.Cli" Version="0.49.1" />
   </ItemGroup>
