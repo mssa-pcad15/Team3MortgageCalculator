@@ -7,21 +7,44 @@ internal class Program
     private static void Main(string[] args)
     {
 
-        MortgageCalculator.Program.Bank tdBank = new MortgageCalculator.Program.Bank("TD Bank");
+        MortgageCalculator.Program.Bank tdBank = new MortgageCalculator.Program.Bank();
         MortgageCalculator.Program.Customer reese= new MortgageCalculator.Program.Customer("Reese");
         MortgageCalculator.Program.Mortgage house = new MortgageCalculator.Program.Mortgage(200000, 6.734m, 30);
         reese.houses.Add(house);
 
-        AnsiConsole.WriteLine($"Hello {reese.Name}! Welcome to {tdBank}");// add bank name to package
+        static void ShowAccountMenu()
+        {
+            choice = AnsiConsole.Prompt(
+            new SelectionPrompt<string>()
+            .Title("What would you like to do?")
+            .PageSize(10)
+            .AddChoices(new[] {
+            "My Mortgages", "My Account Information", "Account Settings"
+            }));
+
+            switch (choice)
+            {
+                case "My Mortgages":
+                    CustomerMortgages._mortgages;
+                    break;
+                case "My Account Information":
+                    CustomerAccount.Information;
+                    break;
+                case "Account Settings":
+                    CustomerAccountSettings();
+                    break;
+                case "Quit":
+                    return;
+            }
+        }
+
+        AnsiConsole.Markup($"[green]Account[/]:{house.AccountNumber}\n[green]Loan Amount[/]:{house.LoanAmount}\n" +
+        $"[green]Interest Rate[/]:{house.AnnualInterestRate:p}\n[green]Loan Length[/]:{house.LoanTimeInYears}");
 
 
-        AnsiConsole.Markup($"[green]Account[/]:{house.AccountNumber}\n[green]Monthly Payment[/]:{house.monthlyPayment}\n[green]Loan Amount[/]:{house.LoanAmount}\n" +
-        $"[green]Interest Rate[/]:{house.AnnualInterestRate/100:p2}\n[green]Loan Length[/]:{house.LoanTimeInYears}");//change how package takes interest rate ( /100 in class)
 
 
 
-
-        
 
 
 
