@@ -4,9 +4,13 @@ using MortgageCalculator;
 using System.Reflection;
 internal class Program
 {
+
+    private static MortgageCalculator.Program.Customer currentCustomer;
     private static void Main(string[] args)
     {
-
+        //currentCustomer = new MortgageCalculator.Program.Customer("Reese");
+        //currentCustomer.Mortgages.Add(new MortgageCalculator.Program.Mortgage(180000, 6.734m, 30));
+        //currentCustomer.Mortgages.Add(new MortgageCalculator.Program.Mortgage(150000, 5.5m, 15));
         //MortgageCalculator.Program.Bank tdBank = new MortgageCalculator.Program.Bank();
         //MortgageCalculator.Program.Customer reese= new MortgageCalculator.Program.Customer("Reese");
         //MortgageCalculator.Program.Mortgage house = new MortgageCalculator.Program.Mortgage(200000, 6.734m, 30);
@@ -40,6 +44,7 @@ internal class Program
 
         static void ShowMortgagesMenu()
         {
+            var choice = String.Empty;
             choice = AnsiConsole.Prompt(
             new SelectionPrompt<string>()
             .Title("What would you like to do?")
@@ -51,13 +56,13 @@ internal class Program
             switch (choice)
             {
                 case "New Loan":
-                    MortgagesNewLoan();
+                    //MortgagesNewLoan();
                     break;
                 case "New Mortgage":
-                    MortgagesNewMortgage();
+                    //MortgagesNewMortgage();
                     break;
                 case "Remove Mortgage":
-                    MortgagesRemoveMortgage();
+                    //MortgagesRemoveMortgage();
                     break;
                 case "Quit":
                     return;
@@ -66,6 +71,7 @@ internal class Program
 
         static void ShowAccountMenu()
         {
+            var choice = String.Empty;
             choice = AnsiConsole.Prompt(
             new SelectionPrompt<string>()
             .Title("What would you like to do?")
@@ -77,13 +83,19 @@ internal class Program
             switch (choice)
             {
                 case "My Mortgages":
-                    CustomerMortgages._mortgages;
+
+                    // when my mortgages is selected, go to new menu
+                    // in new menu, show all mortgages
+                    // --------------maybe-----------------
+                    // choose to either remove or exit
+                    // if remove, go to new context menu to select which to delete
+                    //this.Customer.MyMortgages;
                     break;
                 case "My Account Information":
-                    CustomerAccount.Information;
+                    //CustomerAccount.Information;
                     break;
                 case "Account Settings":
-                    CustomerAccountSettings();
+                    //CustomerAccountSettings();
                     break;
                 case "Quit":
                     return;
