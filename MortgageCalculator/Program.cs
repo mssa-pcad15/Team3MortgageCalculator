@@ -32,15 +32,12 @@ namespace MortgageCalculator
         */
         public class Bank
         {
-            public string BankName { get; set;}
-           
-            public List<Customer>customers=new List<Customer>();
-           
-            public Bank(string name) 
-            { 
-            BankName=name;                        
-            }
+            string bankName { get; set;}
+            public List<Customer>Customers=new List<Customer>();
+
+
         }
+
 
 
             public class Customer
@@ -50,6 +47,25 @@ namespace MortgageCalculator
             public Customer(string name/*, decimal homePrice, decimal downPayment*/) // constructor
             {
                 Name = name;                
+            }
+
+            public void ShowMyMortgages()
+            {
+                if (houses.Count == 0)
+                {
+                    Console.WriteLine("You have no mortgages");
+                }
+                else
+                {
+                    foreach (var house in houses)
+                    {
+                        Console.WriteLine($"Account Number: {house.AccountNumber}");
+                        Console.WriteLine($"Loan Amount: {house.LoanAmount}");
+                        Console.WriteLine($"Annual Interest Rate: {house.AnnualInterestRate}");
+                        Console.WriteLine($"Loan Time in Years: {house.LoanTimeInYears}");
+                        Console.WriteLine($"Monthly Payment: {house.monthlyPayment}");
+                    }
+                }
             }
         }
 
