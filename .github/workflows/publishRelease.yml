@@ -30,7 +30,7 @@ jobs:
           release_name="MortgageCalculator-$tag-${{ matrix.target }}"
 
           # Build everything
-          dotnet publish MortgageCalculator/MortgageCalculator.csproj --runtime "${{ matrix.target }}" -c Release -o "$release_name"
+          dotnet publish MortgageCalculator/UI.csproj --runtime "${{ matrix.target }}" -c Release -o "$release_name"
 
           # Pack files
           if [ "${{ matrix.target }}" == "win-x64" ]; then
