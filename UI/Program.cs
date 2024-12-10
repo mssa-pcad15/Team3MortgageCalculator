@@ -154,6 +154,11 @@ internal class Program
 		var mortgage = new Mortgage(loanAmount, interestRate, loanTime);
 		customer.AddMortgage(mortgage);
 
+		// Calculate and display the monthly payment
+		decimal monthlyPayment = mortgage.CalculateMonthlyPayment();
+		AnsiConsole.MarkupLine($"[green]Mortgage added successfully![/]");
+		AnsiConsole.MarkupLine($"[yellow]Monthly Payment:[/] {monthlyPayment:C}");
+
 		AnsiConsole.MarkupLine("[green]Mortgage added successfully![/]");
 	}
 }
@@ -192,6 +197,21 @@ public class Mortgage
 		LoanAmount = loanAmount;
 		AnnualInterestRate = annualInterestRate;
 		LoanTimeInYears = loanTimeInYears;
+	}
+
+	public decimal CalculateMonthlyPayment()
+	{
+		decimal monthlyRate = AnnualInterestRate / 100 / 12; // Convert annual interest rate to monthly
+		int totalPayments = LoanTimeInYears * 12; // Total number of payments in months
+
+		if (monthlyRate == 0) // Special case: No interest
+		{
+			return LoanAmount / totalPayments; // Equal installment payments
+		}
+
+		// Standard formula for fixed-rate mortgage monthly payment
+		return LoanAmount * (monthlyRate * (decimal)Math.Pow(1 + (double)monthlyRate, totalPayments)) /
+			   ((decimal)Math.Pow(1 + (double)monthlyRate, totalPayments) - 1);
 	}
 }
 
