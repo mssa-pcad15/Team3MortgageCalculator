@@ -11,7 +11,7 @@ internal class Program
 
         Initialize(Corpos);
     }
-
+    //test upload
 
     static void Initialize(List<Bank> corporation)
     {
